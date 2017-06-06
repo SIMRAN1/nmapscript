@@ -1,0 +1,11 @@
+#! /bin/bash
+echo "enter the first ip address"
+read FirstIp
+echo "enter the last ip address"
+read LastIp
+echo "enter the port number to scan"
+read port
+nmap -sT $FirstIP $LastIp -p $port -oG web 
+cat web | grep open > web
+cat web | cut -f2 -d ":" | cut -f1 -d "(" > web2
+cat web2
